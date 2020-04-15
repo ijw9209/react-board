@@ -41,7 +41,7 @@ class regist extends Component {
     render() {
         const { id } = this.state;
         return (
-            <div>
+            <div className="container regist_form_wrap">
                 <form>
                     <table>
                         <tbody>

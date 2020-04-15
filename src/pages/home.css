@@ -1,0 +1,11 @@
+.home_Wrap{
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 20%;
+}
+
+.home_Wrap p{
+    color: #ffffff;
+    font-size: 44px;
+}
