@@ -54,8 +54,10 @@ class regist extends Component {
             users: updatedItems
         })
         localStorage.setItem("userInfo", JSON.stringify(updatedItems));
-        let d = JSON.parse(localStorage.getItem("userInfo"));
-        console.log(d);
+        const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
+        userInfo.map(item => console.log(item.no));
+        //console.log(d);
 
     }
 
