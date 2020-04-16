@@ -1,0 +1,32 @@
+.login_wrap{
+    
+}
+
+.form_wrap{
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 20%;
+}
+
+.login_form input{
+    display: inherit;
+}
+
+.login-btn{
+    margin-top: 40px;
+    width: 250px;
+    height: 35px;
+    border-radius: 10px;
+}
+
+input{
+    padding-left: 10px;
+    height: 40px;
+    border-radius: 8px;
+    width: 250px;
+}
+
+input:nth-child(2){
+    margin-top: 20px;
+}
