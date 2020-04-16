@@ -120,6 +120,7 @@ class regist extends Component {
             name: name
         }
         const updatedItems = [...users, newItem];
+        console.log(updatedItems);
         this.setState({
             users: updatedItems
         })
