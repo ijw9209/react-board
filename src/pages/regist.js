@@ -45,30 +45,33 @@ class regist extends Component {
 
 
         const existId = JSON.parse(localStorage.getItem("userInfo"));
-        const filteredexist = existId.filter(user => user.id === id);
-        if (filteredexist.length === 1) {
-            this.setState({
-                idChk: false,
-                id: ''
-            })
-            alert('중복된 아이디입니다!')
-        } else {
-            this.setState({
-                idChk: true,
-                existBtn: true
-            })
-            alert('사용가능한 아이디입니다!');
+
+        if (Object.keys(existId).length > 0) {
+
+            const filteredexist = existId.filter(user => user.id === id);
+            if (filteredexist.length === 1) {
+                this.setState({
+                    idChk: false,
+                    id: ''
+                })
+                alert('중복된 아이디입니다!')
+            } else {
+                this.setState({
+                    idChk: true,
+                    existBtn: true
+                })
+                alert('사용가능한 아이디입니다!');
+            }
         }
 
     }
 
 
     handleSubmit = e => {
+        const { history } = this.props;
         e.preventDefault();
 
 
-        // const { history } = this.props;
-        // history.push('/Login');
         const { id, pw, pwchk, name, users, idChk, existBtn } = this.state;
 
         const getCheck = RegExp(/^[a-zA-Z0-9]{4,12}$/);
@@ -111,7 +114,7 @@ class regist extends Component {
             return false;
         }
 
-
+        console.log(this.no);
         const newItem = {
             no: this.no++,
             id: id,
@@ -119,6 +122,8 @@ class regist extends Component {
             pwchk: pwchk,
             name: name
         }
+
+
         const updatedItems = [...users, newItem];
         console.log(updatedItems);
         this.setState({
@@ -130,6 +135,22 @@ class regist extends Component {
         //userInfo.map(item => console.log(item.no));
         //console.log(d);
 
+        history.push('/Login');
+    }
+
+    componentDidMount = () => {
+        const { users } = this.state;
+
+        if (Object.keys(users).length === 0) {
+            const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+            const localUser = [...userInfo];
+            const length = Object.keys(userInfo).length;
+            const selectedItem = localUser.filter(item => item.no === length);
+            this.no = selectedItem[0].no + 1;
+            this.setState({
+                users: localUser
+            })
+        }
     }
 
     render() {

@@ -28,9 +28,9 @@ class App extends Component {
   componentDidMount = () => {
 
 
-    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    // const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
-    userInfo.map(item => console.log(item));
+    // userInfo.map(item => console.log(item));
   }
   render() {
     return (
