@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 
 
 import Home from './pages/home';
@@ -12,35 +12,50 @@ import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends Component {
-
   state = {
-    users: []
+    users: [],
+    isLogin: false
   }
 
-  // handleUserCreate = (_id, _pw, _email, _phone) => {
-  //   console.log(_id);
-  //   this.setState({
-  //     users: this.state.users.concat(
-  //       { id: _id, pw: _pw, email: _email, phone: _phone }
-  //     )
-  //   })
-  // };
+
+  handleUserCreate = (e) => {
+    console.log(e);
+
+  };
   componentDidMount = () => {
 
-
+    console.log("컴포넌트 didmount");
+    // const loginInfo = JSON.parse(sessionStorage.getItem("loginInfo"));
+    // if (loginInfo) {
+    //   console.log('여기');
+    //   const loginExist = Object.keys(loginInfo).length;
+    //   if (loginExist > 0) {
+    //     this.setState({
+    //       isLogin: true
+    //     })
+    //   } else {
+    //     this.setState({
+    //       isLogin: false
+    //     })
+    //   }
     // const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-
     // userInfo.map(item => console.log(item));
+  }
+
+  componentWillMount = () => {
+    console.log("compoenntwillMount!!");
+  }
+
+
+  componentWillUnmount = () => {
+    sessionStorage.clear();
   }
   render() {
     return (
       <>
         <header className="header_wrap">
-          <Link to="/Login" onSubmit={this.handleUserCreate}>
+          <Link to="/Login" onSubmit={this.handleUserCreate} >
             <div className="header_menu">login</div>
-          </Link>
-          <Link to="/Regist">
-            <div className="header_menu">regist</div>
           </Link>
           <Link to="/Board">
             <div className="header_menu">board</div>
@@ -50,11 +65,13 @@ class App extends Component {
           </Link>
         </header>
         <main>
-          <Route exact path="/" component={Home} />
-          <Route path="/Regist" component={Regist} />
-          {/* // render={() => <Regist onSubmit={this.handleUserCreate} />} />  */}
-          <Route path="/Board" component={Board} />
-          <Route path="/Login" component={Login} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/Regist" component={Regist} />
+            {/* // render={() => <Regist onSubmit={this.handleUserCreate} />} />  */}
+            <Route path="/Board" component={Board} />
+            <Route path="/Login" component={Login} />
+          </Switch>
         </main>
       </>
     );
