@@ -1,5 +1,5 @@
 .home_Wrap{
-    width: 400px;
+    width: 430px;
     height: 200px;
     margin: 0 auto;
     margin-top: 20%;
@@ -8,4 +8,11 @@
 .home_Wrap p{
     color: #ffffff;
     font-size: 44px;
+}
+
+.username{
+    display: none;
+}
+.username.visible{
+    display: flex;
 }

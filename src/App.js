@@ -14,38 +14,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends Component {
   state = {
     users: [],
-    isLogin: false
+
   }
-
-
-  handleUserCreate = (e) => {
-    console.log(e);
-
-  };
-  componentDidMount = () => {
-
-    console.log("컴포넌트 didmount");
-    // const loginInfo = JSON.parse(sessionStorage.getItem("loginInfo"));
-    // if (loginInfo) {
-    //   console.log('여기');
-    //   const loginExist = Object.keys(loginInfo).length;
-    //   if (loginExist > 0) {
-    //     this.setState({
-    //       isLogin: true
-    //     })
-    //   } else {
-    //     this.setState({
-    //       isLogin: false
-    //     })
-    //   }
-    // const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    // userInfo.map(item => console.log(item));
-  }
-
   componentWillMount = () => {
     console.log("compoenntwillMount!!");
   }
-
 
   componentWillUnmount = () => {
     sessionStorage.clear();
@@ -54,7 +27,7 @@ class App extends Component {
     return (
       <>
         <header className="header_wrap">
-          <Link to="/Login" onSubmit={this.handleUserCreate} >
+          <Link to="/Login" >
             <div className="header_menu">login</div>
           </Link>
           <Link to="/Board">
