@@ -25,6 +25,8 @@ class board extends Component {
                         <col width="530" />
                         <col width="450" />
                         <col width="100" />
+                        <col width="50" />
+                        <col width="50" />
                     </colgroup>
                     <tbody>
                         <tr className="board_tr">

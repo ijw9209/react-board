@@ -6,6 +6,7 @@ import Home from './components/home';
 import Login from './components/login';
 import Regist from './components/regist';
 import Board from './components/board';
+import write from './components/write';
 
 import './reset.css';
 import './App.css';
@@ -31,6 +32,9 @@ class App extends Component {
           <Link to="/Login" >
             <div className="header_menu">login</div>
           </Link>
+          <Link to="/write">
+            <div className="header_menu">write</div>
+          </Link>
           <Link to="/Board">
             <div className="header_menu">board</div>
           </Link>
@@ -42,9 +46,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/Regist" component={Regist} />
-            {/* // render={() => <Regist onSubmit={this.handleUserCreate} />} />  */}
             <Route path="/Board" component={Board} />
             <Route path="/Login" component={Login} />
+            <Route path="/write" component={write} />
           </Switch>
         </main>
       </>
