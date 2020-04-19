@@ -1,0 +1,17 @@
+.board_table{
+    margin-top:30px;
+}
+
+.board_tr {
+    border-bottom: 1px solid #ebebeb;
+    color: black;
+}
+
+.board_wrap > div{
+  margin-top : 20px;
+}
+
+.board_content {
+    line-height: 3.0;
+    border-bottom: 1px solid #ebebeb;
+}

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Switch, Link, Route } from "react-router-dom";
 
 
-import Home from './pages/home';
-import Login from './pages/login';
-import Regist from './pages/regist';
-import Board from './pages/board';
+import Home from './components/home';
+import Login from './components/login';
+import Regist from './components/regist';
+import Board from './components/board';
 
 import './reset.css';
 import './App.css';
@@ -23,6 +23,7 @@ class App extends Component {
   componentWillUnmount = () => {
     sessionStorage.clear();
   }
+
   render() {
     return (
       <>

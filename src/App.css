@@ -4,7 +4,7 @@ header {
   height: 60px;
   border-bottom : 1px solid #ffffff;
   text-align: center;
-  
+  background: black;
 }
 
 
@@ -19,4 +19,8 @@ header {
   cursor: pointer;
   float : right;
   
+}
+
+h2{
+  text-align: center;
 }
