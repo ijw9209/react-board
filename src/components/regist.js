@@ -14,37 +14,37 @@ class regist extends Component {
 
     }
 
-    // handleChange = e =>{
-    //     const {value , name } = e.target;
+    handleChange = e => {
+        const { value, name } = e.target;
+        this.setState({
+            [name]: value
+        });
+    };
+
+    // handleId = e => {
+
     //     this.setState({
-    //         [name] : value;
-    //     });
-    // };
+    //         id: e.target.value
+    //     })
+    // }
 
-    handleId = e => {
+    // handlePw = e => {
+    //     this.setState({
+    //         pw: e.target.value
+    //     })
+    // }
 
-        this.setState({
-            id: e.target.value
-        })
-    }
+    // handlePwChk = e => {
+    //     this.setState({
+    //         pwchk: e.target.value
+    //     })
+    // }
 
-    handlePw = e => {
-        this.setState({
-            pw: e.target.value
-        })
-    }
-
-    handlePwChk = e => {
-        this.setState({
-            pwchk: e.target.value
-        })
-    }
-
-    handleName = e => {
-        this.setState({
-            name: e.target.value
-        })
-    }
+    // handleName = e => {
+    //     this.setState({
+    //         name: e.target.value
+    //     })
+    // }
 
     handleIdChk = e => {
         e.preventDefault();
@@ -121,7 +121,6 @@ class regist extends Component {
             return false;
         }
 
-        console.log(this.no);
         const newItem = {
             no: this.no++,
             id: id,
@@ -161,7 +160,6 @@ class regist extends Component {
     }
 
     render() {
-        const { id } = this.state;
         return (
             <div className="container regist_form_wrap">
                 <form onSubmit={this.handleSubmit} name="fr">
@@ -170,26 +168,26 @@ class regist extends Component {
                             <tr>
                                 <th>아이디</th>
                                 <td className="td_input">
-                                    <input type="text" id="id" onChange={this.handleId} placeholder="아이디" value={id}></input>
+                                    <input type="text" id="id" name="id" onChange={this.handleChange} placeholder="아이디"></input>
                                 </td>
                                 <td><button className="exist-btn" onClick={this.handleIdChk}>중복검사</button></td>
                             </tr>
                             <tr>
                                 <th>비밀번호</th>
                                 <td className="td_input">
-                                    <input type="password" onChange={this.handlePw} placeholder="비밀번호"></input>
+                                    <input type="password" name="pw" onChange={this.handleChange} placeholder="비밀번호"></input>
                                 </td>
                             </tr>
                             <tr>
                                 <th>비밀번호 확인</th>
                                 <td className="td_input">
-                                    <input type="password" onChange={this.handlePwChk} placeholder="비밀번호 확인"></input>
+                                    <input type="password" name="pwchk" onChange={this.handleChange} placeholder="비밀번호 확인"></input>
                                 </td>
                             </tr>
                             <tr>
                                 <th>이름</th>
                                 <td className="td_input">
-                                    <input type="text" onChange={this.handleName} placeholder="이름"></input>
+                                    <input type="text" name="name" onChange={this.handleChange} placeholder="이름"></input>
                                 </td>
                             </tr>
                         </tbody>

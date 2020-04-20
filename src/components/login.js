@@ -9,15 +9,10 @@ class login extends Component {
         pw: ''
     }
 
-    handleId = e => {
+    handleChange = e => {
+        const { name, value } = e.target;
         this.setState({
-            id: e.target.value
-        })
-    }
-
-    handlePw = e => {
-        this.setState({
-            pw: e.target.value
+            [name]: value
         })
     }
 
@@ -52,8 +47,8 @@ class login extends Component {
             <div className="container login_wrap">
                 <div className="form_wrap">
                     <form className="login_form" onSubmit={this.handleSubmit}>
-                        <input type="text" placeholder="아이디" onChange={this.handleId}></input>
-                        <input type="password" placeholder="비밀번호" onChange={this.handlePw}></input>
+                        <input type="text" name="id" placeholder="아이디" onChange={this.handleChange}></input>
+                        <input type="password" name="pw" placeholder="비밀번호" onChange={this.handleChange}></input>
                         <button type="submit" className="login-btn">로그인</button>
                         <button onClick={this.handleRegist} className="regist-btn">회원가입</button>
                     </form>
