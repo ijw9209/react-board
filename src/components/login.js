@@ -33,7 +33,6 @@ class login extends Component {
         const length = Object.keys(loginInfo).length;
         if (length > 0) {
             alert('로그인 성공');
-            //세션에 담아야됨..
             sessionStorage.setItem("loginInfo", JSON.stringify(loginInfo));
             history.push('/');
 

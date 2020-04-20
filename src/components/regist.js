@@ -21,30 +21,7 @@ class regist extends Component {
         });
     };
 
-    // handleId = e => {
 
-    //     this.setState({
-    //         id: e.target.value
-    //     })
-    // }
-
-    // handlePw = e => {
-    //     this.setState({
-    //         pw: e.target.value
-    //     })
-    // }
-
-    // handlePwChk = e => {
-    //     this.setState({
-    //         pwchk: e.target.value
-    //     })
-    // }
-
-    // handleName = e => {
-    //     this.setState({
-    //         name: e.target.value
-    //     })
-    // }
 
     handleIdChk = e => {
         e.preventDefault();
@@ -131,7 +108,6 @@ class regist extends Component {
 
 
         const updatedItems = [...users, newItem];
-        console.log(updatedItems);
         this.setState({
             users: updatedItems
         })
