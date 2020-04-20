@@ -54,8 +54,8 @@ class login extends Component {
                     <form className="login_form" onSubmit={this.handleSubmit}>
                         <input type="text" placeholder="아이디" onChange={this.handleId}></input>
                         <input type="password" placeholder="비밀번호" onChange={this.handlePw}></input>
-                        <button type="submit" className="btn-primary login-btn">로그인</button>
-                        <button onClick={this.handleRegist} className="btn-primary regist-btn">회원가입</button>
+                        <button type="submit" className="login-btn">로그인</button>
+                        <button onClick={this.handleRegist} className="regist-btn">회원가입</button>
                     </form>
                 </div>
             </div>

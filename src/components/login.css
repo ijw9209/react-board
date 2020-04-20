@@ -3,7 +3,7 @@
 }
 
 .form_wrap{
-    width: 200px;
+    width: 400px;
     height: 200px;
     margin: 0 auto;
     margin-top: 20%;
@@ -14,22 +14,30 @@
 }
 
 .login-btn, .regist-btn{
-    width: 250px;
-    height: 35px;
-    border-radius: 10px;
+    width: 350px;
+    height: 40px;
 }
 .login-btn{
     margin-top : 30px;
+    background-color: #03c75a;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
 }
+
 .regist-btn{
     margin-top : 20px;
+    background-color: #03c75a;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 input{
-    padding-left: 10px;
     height: 40px;
-    border-radius: 8px;
-    width: 250px;
+    width: 350px;
 }
 
 input:nth-child(2){

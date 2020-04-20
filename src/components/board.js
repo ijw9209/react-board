@@ -20,7 +20,6 @@ class board extends Component {
                     <h2>게시판</h2>
                 </div>
                 <table className="board_table">
-
                     <colgroup>
                         <col width="530" />
                         <col width="450" />

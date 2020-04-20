@@ -14,6 +14,13 @@ class regist extends Component {
 
     }
 
+    // handleChange = e =>{
+    //     const {value , name } = e.target;
+    //     this.setState({
+    //         [name] : value;
+    //     });
+    // };
+
     handleId = e => {
 
         this.setState({
@@ -165,7 +172,7 @@ class regist extends Component {
                                 <td className="td_input">
                                     <input type="text" id="id" onChange={this.handleId} placeholder="아이디" value={id}></input>
                                 </td>
-                                <td><button className="btn-primary" onClick={this.handleIdChk}>중복검사</button></td>
+                                <td><button className="exist-btn" onClick={this.handleIdChk}>중복검사</button></td>
                             </tr>
                             <tr>
                                 <th>비밀번호</th>
@@ -187,7 +194,7 @@ class regist extends Component {
                             </tr>
                         </tbody>
                     </table>
-                    <button type="submit" className="btn-primary submit-btn">가입</button>
+                    <button type="submit" className="submit-btn">가입</button>
                 </form>
             </div>
         );

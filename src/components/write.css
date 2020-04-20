@@ -1,3 +1,37 @@
 .write_table {
-    line-height: 3;
+    margin : 0 auto; 
+}
+
+.write_wrap{
+    height: 400px;
+}
+
+.write_tr td{
+    padding-bottom: 20px;
+}
+.write_tr th{
+    padding-right: 20px;
+}
+
+.write_content_th {
+    position: relative;
+    bottom: 50px;
+}
+
+.btn_wrap{
+    width:150px;
+    float: right;
+    margin-right: 21.5%;
+}
+
+.write-btn{
+    margin-left: 32px;
+    height: 39px;
+    margin-top: 15px;
+    background-color: #03c75a;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 auto;
 }

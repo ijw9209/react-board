@@ -17,8 +17,8 @@ class App extends Component {
     users: [],
 
   }
-  componentWillMount = () => {
-    console.log("compoenntwillMount!!");
+  componentDidMount = () => {
+    console.log("Appcomponentdidmount!")
   }
 
   componentWillUnmount = () => {

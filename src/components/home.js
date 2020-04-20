@@ -8,7 +8,6 @@ class home extends Component {
     }
 
     componentDidMount = () => {
-        console.log('componentDidMount');
 
         const loginInfo = JSON.parse(sessionStorage.getItem("loginInfo"));
         if (loginInfo) {
