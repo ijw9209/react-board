@@ -10,7 +10,10 @@ class board extends Component {
             { no: 2, title: '하이하이', contents: '내용내용', name: '이순신' }
         ]
     }
+    componentDidMount = () => {
+        console.log("board component!!");
 
+    }
 
     render() {
         const { contents } = this.state;

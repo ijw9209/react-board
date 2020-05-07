@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 
 import './write.css';
 class write extends Component {
-
+    no = 1;
     state = {
         title: '',
         name: '',
-        contents: ''
+        contents: '',
+        items: []
 
     }
 
@@ -14,18 +15,32 @@ class write extends Component {
         console.log("write 컴포넌트!")
     }
 
-
-    handleTitle = e => {
+    handleChange = e => {
+        const { value, name } = e.target;
         this.setState({
-            title: e.target.value
-        })
-    }
+            [name]: value
+        });
+    };
 
 
-    handleContents = e => {
+    handleWrite = e => {
+        const { history } = this.props;
+        e.preventDefault();
+        const { title, name, contents, items } = this.state;
+
+        const newItem = {
+            no: this.no++,
+            title: title,
+            name: name,
+            contents: contents
+        }
+
+        const updateItems = [...items, newItem];
         this.setState({
-            contents: e.target.value
+            items: updateItems
         })
+        localStorage.setItem("items", JSON.stringify(updateItems));
+        // history.push("/");
     }
 
     render() {
@@ -39,20 +54,20 @@ class write extends Component {
                         <tbody>
                             <tr className="write_tr">
                                 <th>제목</th>
-                                <td><input type="text" onChange={this.handleTitle}></input></td>
+                                <td><input type="text" name="title" onChange={this.handleChange}></input></td>
                             </tr>
                             <tr className="write_tr">
                                 <th>작성자</th>
-                                <td><input type="text" readOnly="readOnly"></input></td>
+                                <td><input type="text" name="name" onChange={this.handleChange}></input></td>
                             </tr>
                             <tr className="write_tr">
                                 <th className="write_content_th">내용</th>
-                                <td><textarea cols="46" rows="5" onChange={this.handleContents}></textarea></td>
+                                <td><textarea cols="46" rows="5" name="contents" onChange={this.handleChange}></textarea></td>
                             </tr>
                         </tbody>
                     </table>
                     <div className="btn_wrap">
-                        <button className="write-btn">작성</button>
+                        <button className="write-btn" onClick={this.handleWrite}>작성</button>
                     </div>
                 </div>
             </div>

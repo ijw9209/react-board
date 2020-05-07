@@ -17,14 +17,12 @@ class login extends Component {
     }
 
     handleRegist = e => {
-        const { history } = this.props;
         e.preventDefault();
-        history.push('/regist')
+        this.props.history.push('/regist')
 
     }
 
     handleSubmit = e => {
-        const { history } = this.props;
         const { id, pw } = this.state;
         e.preventDefault();
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
@@ -34,7 +32,8 @@ class login extends Component {
         if (length > 0) {
             alert('로그인 성공');
             sessionStorage.setItem("loginInfo", JSON.stringify(loginInfo));
-            history.push('/');
+            this.props.onLogin(loginInfo);
+            this.props.history.push('/');
 
         } else {
             alert('아이디와 비밀번호를 확인해주세요!');

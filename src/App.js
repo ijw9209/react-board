@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Switch, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-
+import Head from './components/head';
 import Home from './components/home';
 import Login from './components/login';
 import Regist from './components/regist';
@@ -14,9 +14,33 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends Component {
   state = {
-    users: [],
-
+    loginUser: [],
+    loginState: false
   }
+
+  handleLogin = user => {
+    if (user.length === 1) {
+      this.setState({
+        loginState: !this.state.loginState,
+        loginUser: user
+      });
+    } else {
+      this.setState({
+        loginState: false
+      });
+    }
+  }
+
+  handleLogout = () => {
+    if (this.state.loginState) {
+      this.setState({
+        loginState: !this.state.loginState,
+        loginUser: []
+      })
+      sessionStorage.clear();
+    }
+  }
+
   componentDidMount = () => {
     console.log("Appcomponentdidmount!")
   }
@@ -28,29 +52,22 @@ class App extends Component {
   render() {
     return (
       <>
-        <header className="header_wrap">
-          <Link to="/Login" >
-            <div className="header_menu">login</div>
-          </Link>
-          <Link to="/write">
-            <div className="header_menu">write</div>
-          </Link>
-          <Link to="/Board">
-            <div className="header_menu">board</div>
-          </Link>
-          <Link to="/">
-            <div className="header_menu">Home</div>
-          </Link>
-        </header>
-        <main>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/Regist" component={Regist} />
-            <Route path="/Board" component={Board} />
-            <Route path="/Login" component={Login} />
-            <Route path="/write" component={write} />
-          </Switch>
-        </main>
+        <Router>
+          <Head loginState={this.state.loginState} onLogout={this.handleLogout}></Head>
+          <main>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/Regist" component={Regist} />
+              <Route path="/Board" component={Board} />
+              <Route path="/Login" component={(props) =>
+                <Login {...props}
+                  onLogin={this.handleLogin}
+                ></Login>
+              } />
+              <Route path="/write" component={write} />
+            </Switch>
+          </main>
+        </Router>
       </>
     );
   }
